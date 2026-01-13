@@ -7,9 +7,9 @@
     <title>My Portfolio</title>
     <style>
         .section-divider {
-            border: none; /* Remove default border */
-            height: 2px; /* Thickness of the line */
-            background-color: #354739; /* Color of the line */
+            border: none;
+            height: 2px;
+            background-color: #354739;
             width: 80%;
             text-align: center;
         }
@@ -22,25 +22,25 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Enables smooth scrolling */
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Lato', sans-serif; /* Modern font style */
+            font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* Light orange background */
-            overflow-x: hidden; /* Hide horizontal scrollbar */
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
 
         .header {
-            background: linear-gradient(to right, #031926, #273945); /* Gradient */
+            background: linear-gradient(to right, #031926, #273945);
             color: #E0E2E4;
             text-align: center;
-            padding: 40px 0; /* Increased padding for more space */
+            padding: 40px 0;
             font-size: 30px;   
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.699); /* Slightly reduced text shadow for clarity */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.719); /* Adjusted box shadow for better visibility */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.699);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.719);
             z-index: 1;
         }
 
@@ -48,7 +48,7 @@
             border-radius: 50%;
             width: 250px;
             height: 250px;
-            border: 5px solid #E0E2E4; /* White circle border */
+            border: 5px solid #E0E2E4;
         }
 
         .social-links {
@@ -58,13 +58,13 @@
         .social-links a {
             margin: 0 10px;
             text-decoration: none;
-            font-size: 28px; /* Increased font size */
+            font-size: 28px;
         }
 
         .social-links a img {
             width: 40px;
             height: 40px;
-            border: none; /* Remove border from social icons */
+            border: none;
         }
 
         .nav-links {
@@ -73,14 +73,14 @@
 
         .nav-links a {
             color: #E0E2E4;
-            margin: 0 100px; /* Increased margin */
+            margin: 0 100px;
             font-weight: bold;
-            font-size: 28px; /* Enlarge text size */
-            text-decoration: none; /* Remove underline */
+            font-size: 28px;
+            text-decoration: none;
         }
 
         .content-section {
-            max-width: 800px;
+            max-width: 1000px; /* Increased width to accommodate side-by-side layout */
             margin: 0 auto;
             font-size: 24px;
             padding: 50px;
@@ -88,16 +88,56 @@
         }
 
         .section-title {
-            font-size: 50px; /* Larger font size */
-            color: #354739; /* Dark blue color */
-            margin-bottom: 30px; /* Increased space below the title */
+            font-size: 50px;
+            color: #354739;
+            margin-bottom: 30px;
+        }
+
+        /* Container for Resume (Left) and Timeline (Right) */
+        .resume-timeline-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .resume-preview {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .resume-preview img {
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .resume-preview img:hover {
+            transform: scale(1.02);
+        }
+
+        .resume-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #354739;
+            color: #E0E2E4;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
         }
 
         .timeline {
+            flex: 2; /* Takes up more space than the resume */
             position: relative;
-            margin: 50px auto;
-            width: 80%;
-            max-width: 800px; /* Increased max-width for better spacing */
+            margin: 0 auto;
+            width: 100%;
         }
 
         .timeline::after {
@@ -107,31 +147,28 @@
             background-color: #5fa4ff;
             top: 0;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%); /* Adjust to truly center */
+            left: 50px; /* Shifted line to the left for better list view */
         }
 
-        .timelineDot{
-            position: relative;
+        .timelineDot {
+            position: absolute;
             top: 20px;
             width: 20px;
-            left: -53px;
+            left: 44px; /* Aligned with the line */
             height: 20px;
             background-color: #38b348;
-            border-radius: 70%;
-            margin-right: 199px;
-            z-index:2;
+            border-radius: 50%;
+            z-index: 2;
         }
 
         .timeline-item {
-            padding: 15px;
+            padding: 20px;
             background-color: #E0E2E4;
             border-radius: 10px;
-            width: 80%; /* Adjusted width for better spacing */
-            margin: 20px auto; /* Centering the timeline items */
-            margin-right:-250px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.548); /* Add shadow to items */
-            text-align: left; /* Ensure text is aligned left */
+            width: calc(100% - 100px); /* Adjusted width */
+            margin: 20px 0 20px 80px; /* Push item to the right of the line */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.548);
+            text-align: left;
         }
 
         .project-section {
@@ -143,7 +180,7 @@
         .project {
             flex: 1 1 30%;
             margin: 10px;
-            width: calc(20% - 20px);
+            min-width: 300px;
             padding: 20px;
             background-color: #f0f0f0;
             border-radius: 10px;
@@ -169,7 +206,7 @@
             line-height: 1.6;
         }
         .small-text {
-            font-family: 'Futura', sans-serif; /* Modern font style */
+            font-family: 'Futura', sans-serif;
             font-size: 15px;
         }
     </style>
@@ -202,35 +239,66 @@
         <p class="section-text">In my free time I enjoy rock climbing, board games, and hanging out with my friends.</p>
     </section>
 
-    <hr class="section-divider"> <!-- Add the horizontal line here -->
+    <hr class="section-divider">
 
     <section id="projects" class="content-section">
         <h2 class="section-title">Projects</h2>
         <div class="project-section">
             <div class="project">
-                <img src="path.webp" alt="Project 1">
+                <img src="path.webp" alt="Warehouse Robotics">
                 <h3>Warehouse Robotics Path Planning</h3>
                 <p>Utilized A* algorithm and self built code to generate efficient robot paths while avoiding collision.</p>
-                <p>Conducted several simulations and adjusted factors of safety and collision detection to increase effeciency while maintaining safety.</p>
+                <p>Conducted several simulations and adjusted factors of safety and collision detection to increase efficiency while maintaining safety.</p>
             </div>
             <div class="project">
-                <img src="HT.webp" alt="Project 2">
+                <img src="HT.webp" alt="Formula Buckeyes">
                 <h3>Formula Buckeyes EV Accumulator Cooling</h3>
                 <p>Tasked with researching and modeling heat exchange within an air cooled battery.</p>
                 <p>Preformed heat transfer, pressure drop, and fluid dynamic calculations along with Computational Fluid Dynamics to design a cooling system capable of maintaining accumulator cooling during excessive cycling.</p>
             </div>
+            <div class="project">
+                <img src="EcoCAR.jpg" alt="EcoCAR CACC" onerror="this.src='https://via.placeholder.com/300x200?text=EcoCAR+Project'">
+                <h3>EcoCAR CACC Algorithm Development</h3>
+                <p>Developed Cooperative Adaptive Cruise Control (CACC) algorithms for the EcoCAR team to improve vehicle autonomy.</p>
+                <p>Led the Connected Autonomous Vehicles (CAV) sub-team, overseeing the integration of Human-Machine Interfaces (HMI) and optimizing Python code for system efficiency.</p>
+            </div>
         </div>
     </section>
 
-    <hr class="section-divider"> <!-- Add the horizontal line here -->
+    <hr class="section-divider">
 
     <section id="timeline" class="content-section">
         <h2 class="section-title">Resume and Timeline</h2>
-        <div class="timeline">
-            <div class="timeline-item" style= "background-color:#A3C4DC;">
+        
+        <div class="resume-timeline-wrapper">
+            <div class="resume-preview">
+                <a href="TylerEstradaResumeAU2024.pdf" target="_blank">
+                    <img src="ResumeImage.jpg" alt="Resume Preview" onerror="this.src='https://via.placeholder.com/300x400?text=Resume+Preview'">
+                </a>
+                <a href="TylerEstradaResumeAU2024.pdf" class="resume-btn" download>Download Resume</a>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" style="background-color:#A3C4DC;">
                     <div class="timelineDot"></div>
                     <div class="timeline-item-content">
-                        <h3 style= "font-size: 22px;">Mars Petcare Research and Development</h3>
+                        <h3 style="font-size: 22px;">Ohio State Center for Automotive Research</h3>
+                        <p class="small-text" style="margin-top: -20px;">Graduate Research Assistant</p>
+                        <p class="small-text" style="margin-top: -12px;">Columbus, OH</p>
+                        <p class="small-text" style="margin-top: -12px;">October 2024 - Present</p>
+                        <div class="smallDivider"></div>
+                        <ul>
+                            <li class="small-text">Graduate Research Assistant for Ohio State's EcoCAR team, serving as the Team Lead for Connected Autonomous Vehicles (CAVs) sub team.</li>
+                            <li class="small-text">Developing the Cooperative Adaptive Cruise Control (CACC) controller for V2X communication and optimized battery efficiency.</li>
+                            <li class="small-text">Responsible for python coding and integration of the team added Human Machine Interface to enhance usability and functionality for autonomous vehicle systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="background-color:#A3C4DC;">
+                    <div class="timelineDot"></div>
+                    <div class="timeline-item-content">
+                        <h3 style="font-size: 22px;">Mars Petcare Research and Development</h3>
                         <p class="small-text" style="margin-top: -20px;">Process Engineering Intern</p>
                         <p class="small-text" style="margin-top: -12px;">Nashville, TN</p>
                         <p class="small-text" style="margin-top: -12px;">May-August 2024</p>
@@ -241,61 +309,63 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item" style= "background-color:#A3C4DC;">
-                <div class="timelineDot"></div>
-                <div class="timeline-item-content">
-                    <h3 style= "font-size: 22px;">DuPont</h3>
-                    <p class="small-text" style="margin-top: -20px;">Reliability Engineering Co-op</p>
-                    <p class="small-text" style="margin-top: -12px;">Circleville, OH</p>
-                    <p class="small-text" style="margin-top: -12px;">May-December 2023</p>
-                    <div class="smallDivider"></div>
-                    <ul>
-                        <li class="small-text">Established new organizational hierarchy for critical equipment and updated with necessary preventative maintenance tasks to ensure continuous operation.</li>
-                        <li class="small-text">Identified and categorized critical pieces of equipment on a multimillion-dollar project to ensure process safety and maintain compliance with the EPA.</li>
-                        <li class="small-text">Designed and implemented cost reducing project to improve operator work scope and allow safe handling of hazardous material.</li>
-                    </ul>
+
+                <div class="timeline-item" style="background-color:#A3C4DC;">
+                    <div class="timelineDot"></div>
+                    <div class="timeline-item-content">
+                        <h3 style="font-size: 22px;">DuPont</h3>
+                        <p class="small-text" style="margin-top: -20px;">Reliability Engineering Co-op</p>
+                        <p class="small-text" style="margin-top: -12px;">Circleville, OH</p>
+                        <p class="small-text" style="margin-top: -12px;">May-December 2023</p>
+                        <div class="smallDivider"></div>
+                        <ul>
+                            <li class="small-text">Established new organizational hierarchy for critical equipment and updated with necessary preventative maintenance tasks to ensure continuous operation.</li>
+                            <li class="small-text">Identified and categorized critical pieces of equipment on a multimillion-dollar project to ensure process safety and maintain compliance with the EPA.</li>
+                            <li class="small-text">Designed and implemented cost reducing project to improve operator work scope and allow safe handling of hazardous material.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item" style= "background-color:#A3C4DC;">
-                <div class="timelineDot"></div>
-                <div class="timeline-item-content">
-                    <h3 style= "font-size: 22px;">The Ohio State Center for Automotive Research</h3>
-                    <p class="small-text" style="margin-top: -20px;">Research Fellow</p>
-                    <p class="small-text" style="margin-top: -12px;">Columbus, OH</p>
-                    <p class="small-text" style="margin-top: -12px;">February-May 2022</p>
-                    <div class="smallDivider"></div>
-                    <ul>
-                        <li class="small-text">Participated in a research program covering hybrid-electric vehicles, human machine interactions, Arduino programming/prototyping, and industrial systems engineering.</li>
-                        <li class="small-text">Optimized ECMA for two federally mandated drive cycles.</li>
-                        <li class="small-text">Assisted Ohio State’s EcoCAR team with improving HMI within the hybrid-electric vehicle.</li>
-                    </ul>
+
+                <div class="timeline-item" style="background-color:#A3C4DC;">
+                    <div class="timelineDot"></div>
+                    <div class="timeline-item-content">
+                        <h3 style="font-size: 22px;">The Ohio State Center for Automotive Research</h3>
+                        <p class="small-text" style="margin-top: -20px;">Research Fellow</p>
+                        <p class="small-text" style="margin-top: -12px;">Columbus, OH</p>
+                        <p class="small-text" style="margin-top: -12px;">February-May 2022</p>
+                        <div class="smallDivider"></div>
+                        <ul>
+                            <li class="small-text">Participated in a research program covering hybrid-electric vehicles, human machine interactions, Arduino programming/prototyping, and industrial systems engineering.</li>
+                            <li class="small-text">Optimized ECMA for two federally mandated drive cycles.</li>
+                            <li class="small-text">Assisted Ohio State’s EcoCAR team with improving HMI within the hybrid-electric vehicle.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item" style= "background-color:#A3C4DC;">
-                <div class="timelineDot"></div>
-                <div class="timeline-item-content">
-                    <h3 style= "font-size: 22px;">Ohio State Rock Climbing Club</h3>
-                    <p class="small-text" style="margin-top: -20px;">Competitive Chair</p>
-                    <p class="small-text" style="margin-top: -12px;">Columbus, OH</p>
-                    <p class="small-text" style="margin-top: -12px;">February-May 2022</p>
-                    <div class="smallDivider"></div>
-                    <ul>
-                        <li class="small-text">Coordinated the team’s involvement in competitions in and out of state.</li>
-                        <li class="small-text">Researched competitions and gauged member interest.</li>
-                        <li class="small-text">Collaborate with other leaders to plan outdoor activities and boost engagement.</li>
-                    </ul>
+
+                <div class="timeline-item" style="background-color:#A3C4DC;">
+                    <div class="timelineDot"></div>
+                    <div class="timeline-item-content">
+                        <h3 style="font-size: 22px;">Ohio State Rock Climbing Club</h3>
+                        <p class="small-text" style="margin-top: -20px;">Competitive Chair</p>
+                        <p class="small-text" style="margin-top: -12px;">Columbus, OH</p>
+                        <p class="small-text" style="margin-top: -12px;">February-May 2022</p>
+                        <div class="smallDivider"></div>
+                        <ul>
+                            <li class="small-text">Coordinated the team’s involvement in competitions in and out of state.</li>
+                            <li class="small-text">Researched competitions and gauged member interest.</li>
+                            <li class="small-text">Collaborate with other leaders to plan outdoor activities and boost engagement.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <header class="header">
-    <section id="connect" class="content-section">
-        <h2 class="section-title">Connect With Me</h2>
-        <p class="small-text" style="margin-top: -12px;">Learning html as I build the website so please let me know if you notice any mistakes that I can fix! Still a work in progress.</p>
 
-    </section>
+    <header class="header">
+        <section id="connect" class="content-section">
+            <h2 class="section-title">Connect With Me</h2>
+            <p class="small-text" style="margin-top: -12px;">Learning html as I build the website so please let me know if you notice any mistakes that I can fix! Still a work in progress.</p>
+        </section>
+    </header>
 </body>
 </html>
-
-
-
