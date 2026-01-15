@@ -80,7 +80,8 @@
         }
 
         .content-section {
-            max-width: 1000px; /* Increased width to accommodate side-by-side layout */
+            /* INCREASED MAX-WIDTH TO FIT 3 COLUMNS */
+            max-width: 1200px; 
             margin: 0 auto;
             font-size: 24px;
             padding: 50px;
@@ -134,7 +135,7 @@
         }
 
         .timeline {
-            flex: 2; /* Takes up more space than the resume */
+            flex: 2;
             position: relative;
             margin: 0 auto;
             width: 100%;
@@ -147,14 +148,14 @@
             background-color: #5fa4ff;
             top: 0;
             bottom: 0;
-            left: 50px; /* Shifted line to the left for better list view */
+            left: 50px;
         }
 
         .timelineDot {
             position: absolute;
             top: 20px;
             width: 20px;
-            left: 44px; /* Aligned with the line */
+            left: 44px;
             height: 20px;
             background-color: #38b348;
             border-radius: 50%;
@@ -165,8 +166,8 @@
             padding: 20px;
             background-color: #E0E2E4;
             border-radius: 10px;
-            width: calc(100% - 100px); /* Adjusted width */
-            margin: 20px 0 20px 80px; /* Push item to the right of the line */
+            width: calc(100% - 100px);
+            margin: 20px 0 20px 80px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.548);
             text-align: left;
         }
@@ -178,9 +179,10 @@
         }
 
         .project {
-            flex: 1 1 30%;
+            /* MODIFIED FLEX AND MIN-WIDTH TO FIT 3 IN A ROW */
+            flex: 1; 
+            min-width: 280px; /* Small enough to fit 3 in 1200px container */
             margin: 10px;
-            min-width: 300px;
             padding: 20px;
             background-color: #f0f0f0;
             border-radius: 10px;
@@ -289,8 +291,8 @@
                         <div class="smallDivider"></div>
                         <ul>
                             <li class="small-text">Graduate Research Assistant for Ohio State's EcoCAR team, serving as the Team Lead for Connected Autonomous Vehicles (CAVs) sub team.</li>
-                            <li class="small-text">Developing the Cooperative Adaptive Cruise Control (CACC) controller for V2X communication and optimized battery efficiency.</li>
-                            <li class="small-text">Responsible for python coding and integration of the team added Human Machine Interface to enhance usability and functionality for autonomous vehicle systems.</li>
+                            <li class="small-text">Overseeing the development and integration of a Human-Machine Interface (HMI), including hardware installation and interface design.</li>
+                            <li class="small-text">Responsible for python coding and optimizing the HMI's user interface to enhance usability and functionality for autonomous vehicle systems.</li>
                         </ul>
                     </div>
                 </div>
