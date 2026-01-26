@@ -3,10 +3,10 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"> 
     <title>Tyler Estrada - Portfolio</title>
     <style>
-        /* Theme colors */
+        /* --- MODERN THEME VARIABLES --- */
         :root {
             --primary-dark: #2A3D35;  /* Deep Green */
             --accent-green: #38b348;  /* Vibrant Green */
@@ -32,9 +32,10 @@
             color: var(--text-dark);
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased; /* Smoother fonts on mobile */
         }
 
-        /*  UTILITY CLASSES */
+        /* --- UTILITY CLASSES --- */
         .section-divider {
             border: none;
             height: 2px;
@@ -47,21 +48,21 @@
             border: none;
             height: 2px;
             background-color: #e0e0e0;
-            width: 60px; 
+            width: 60px;
             margin: 15px 0;
             text-align: left;
         }
 
         .small-text {
-            font-family: 'Lato', sans-serif; 
+            font-family: 'Lato', sans-serif;
             font-weight: 400;
             font-size: 15px;
-            color: #666; 
+            color: #666;
         }
 
-        /* HEADER */
+        /* --- HEADER --- */
         .header {
-            background: linear-gradient(135deg, #1c2e38, #354739); 
+            background: linear-gradient(135deg, #1c2e38, #354739);
             color: var(--text-light);
             text-align: center;
             padding: 60px 20px 40px;
@@ -75,19 +76,20 @@
             width: 220px;
             height: 220px;
             object-fit: cover;
-            border: 6px solid rgba(255, 255, 255, 0.2); 
+            border: 6px solid rgba(255, 255, 255, 0.2);
             box-shadow: var(--shadow-soft);
         }
         
         .header h1 {
             font-weight: 900;
-            font-size: 3.5em;
+            font-size: 3.5rem; /* Responsive unit */
             margin: 20px 0 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.1;
         }
 
         .header-subtitle {
-            font-size: 22px;
+            font-size: 1.2rem;
             font-weight: 300;
             margin: 5px 0;
             opacity: 0.9;
@@ -118,7 +120,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px;
         }
 
         .nav-links a {
@@ -133,7 +135,6 @@
             position: relative;
         }
         
-        /* Nav link underline animation */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -149,17 +150,17 @@
             width: 100%;
         }
 
-        /* PAGE CONTENT STRUCTURE  */
+        /* --- PAGE CONTENT STRUCTURE --- */
         .content-section {
-            max-width: 1200px; 
+            max-width: 1300px; /* Wider container for side-by-side */
             margin: 0 auto;
-            font-size: 20px;
+            font-size: 1.1rem;
             padding: 80px 20px;
             text-align: center;
         }
 
         .section-title {
-            font-size: 42px;
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--primary-dark);
             margin-bottom: 50px;
@@ -177,25 +178,26 @@
             border-radius: 2px;
         }
 
-        /*PROJECTS SECTION (*/
+        /* --- PROJECTS SECTION (Updated to 2x2 Grid) --- */
         .project-section {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
+            display: grid;
+            /* Force 2 columns on larger screens */
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; /* Larger gap for larger footprint */
+            padding: 10px;
         }
 
         .project {
-            flex: 1; 
-            min-width: 300px;
-            max-width: 380px;
-            padding: 25px;
             background-color: var(--card-bg);
+            padding: 30px; /* Increased padding */
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-soft);
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(0,0,0,0.05);
+            height: 100%; /* Equal height cards */
+            display: flex;
+            flex-direction: column;
         }
         
         .project:hover {
@@ -205,44 +207,46 @@
 
         .project img {
             width: 100%;
-            height: 220px;
+            height: 300px; /* Taller images for larger cards */
             object-fit: cover;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .project h3 {
-            font-size: 24px;
+            font-size: 1.8rem; /* Larger font */
             font-weight: 700;
             color: var(--primary-dark);
             margin-bottom: 15px;
+            line-height: 1.3;
         }
 
         .project p {
-            font-size: 16px;
+            font-size: 1.05rem;
             color: #555;
             margin-bottom: 15px;
+            flex-grow: 1; /* Pushes content to fill space if needed */
         }
 
+        /* --- SIDE-BY-SIDE RESUME & TIMELINE LAYOUT --- */
         
         .resume-timeline-container {
             display: flex;
-            align-items: flex-start; 
-            gap: 50px;
-            text-align: left; 
+            align-items: flex-start;
+            gap: 40px;
+            text-align: left;
         }
 
-        /* LEFT COLUMN: Resume */
+        /* RESUME COLUMN */
         .resume-column {
-            flex: 1; /* Takes up 1 part space */
-            min-width: 300px;
-            position: sticky; /* Optional: Keeps resume visible while scrolling timeline */
+            flex: 1; 
+            position: sticky;
             top: 40px;
         }
 
         .resume-card {
             background-color: var(--card-bg);
-            padding: 30px;
+            padding: 20px;
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-soft);
             text-align: center;
@@ -250,16 +254,16 @@
         }
 
         .resume-preview img {
-            width: 100%;
-            max-width: 280px; 
-            border-radius: 10px;
+            width: 100%; 
+            height: auto;
+            border-radius: 5px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
 
         .resume-preview img:hover {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
 
         .resume-btn {
@@ -269,10 +273,11 @@
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 700;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(53, 71, 57, 0.3);
+            width: 80%; 
         }
 
         .resume-btn:hover {
@@ -281,14 +286,13 @@
             box-shadow: 0 8px 20px rgba(56, 179, 72, 0.4);
         }
 
-        /* RIGHT COLUMN: Timeline (Modernized Single Line) */
+        /* TIMELINE COLUMN */
         .timeline-column {
-            flex: 2; /* Takes up 2 parts space */
+            flex: 1; 
             position: relative;
-            padding-left: 30px; /* Space for the line on the left */
+            padding-left: 30px; 
         }
 
-        /* The vertical line on the left */
         .timeline-column::before {
             content: '';
             position: absolute;
@@ -300,7 +304,6 @@
             border-radius: 2px;
         }
 
-        /* Timeline Item Card */
         .timeline-item {
             position: relative;
             background-color: var(--card-bg);
@@ -308,13 +311,13 @@
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-soft);
             margin-bottom: 40px;
-            margin-left: 20px; /* Spacing between line and card */
+            margin-left: 20px;
             border: 1px solid rgba(0,0,0,0.05);
             
-            /* ANIMATION INITIAL STATE */
+            /* ANIMATION START STATE */
             opacity: 0;
-            transform: translateY(60px) scale(0.95); /* Slightly smaller and lower */
-            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother easing */
+            transform: translateY(60px) scale(0.95);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .timeline-item.in-view {
@@ -322,17 +325,16 @@
             transform: translateY(0) scale(1);
         }
 
-        /* The Dots on the left line */
         .timeline-item::after {
             content: '';
             position: absolute;
             width: 16px;
             height: 16px;
             background-color: var(--accent-green);
-            border: 4px solid var(--bg-light); /* Match page bg for cutout effect */
-            box-shadow: 0 0 0 3px var(--accent-blue); /* Outer ring */
+            border: 4px solid var(--bg-light);
+            box-shadow: 0 0 0 3px var(--accent-blue);
             top: 15px;
-            left: -32px; /*Position exactly on the left line */
+            left: -32px;
             border-radius: 50%;
             z-index: 2;
         }
@@ -341,6 +343,8 @@
             margin-top: 0;
             color: var(--primary-dark);
             font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 1.2;
         }
         
         .timeline-item ul {
@@ -352,27 +356,72 @@
             margin-bottom: 10px;
         }
 
-        /*  RESPONSIVE DESIGN*/
+        /* --- MOBILE RESPONSIVENESS (DYNAMIC) --- */
         @media screen and (max-width: 960px) {
-            /* Stack resume and timeline vertically on smaller screens */
+            .header h1 { font-size: 2.5rem; }
+            .header img.profile-pic { width: 180px; height: 180px; }
+            
+            /* Stack columns vertically */
             .resume-timeline-container {
                 flex-direction: column;
-                gap: 60px;
+                gap: 50px;
             }
             
+            /* Make columns full width */
             .resume-column, .timeline-column {
                 width: 100%;
                 flex: auto;
             }
             
             .resume-column {
-                position: static; /* Remove sticky on mobile */
+                position: static; /* No sticky on mobile */
+            }
+            
+            /* Projects become single column on smaller screens */
+            .project-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .project img {
+                height: 250px; /* Slightly smaller image on mobile */
             }
 
-            /* Adjust header size */
-            .header h1 { font-size: 2.8em; }
-            .header-subtitle { font-size: 18px; }
-            .nav-links a { margin: 5px 15px; }
+            .content-section {
+                padding: 40px 15px; /* Reduce padding */
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                font-size: 16px;
+                padding: 5px;
+            }
+        }
+        
+        /* Extra Small Screens (Phones) */
+        @media screen and (max-width: 480px) {
+            .header { padding-top: 40px; }
+            .header h1 { font-size: 2rem; }
+            .header-subtitle { font-size: 1rem; }
+            
+            .timeline-item {
+                padding: 20px; /* Less padding inside cards */
+                margin-left: 10px;
+            }
+            
+            .timeline-column {
+                padding-left: 20px;
+            }
+            
+            .timeline-item::after {
+                left: -30px; /* Adjust dot position for smaller margin */
+            }
         }
     </style>
 </head>
@@ -406,25 +455,32 @@
 
     <hr class="section-divider">
 
-    <section id="projects" class="content-section" style="background-color: #fff;"> <h2 class="section-title">Projects</h2>
+    <section id="projects" class="content-section" style="background-color: #fff;">
+        <h2 class="section-title">Projects</h2>
         <div class="project-section">
             <div class="project">
-                <img src="path.webp" alt="Warehouse Robotics" onerror="this.src='https://via.placeholder.com/380x220?text=Robotics+Project'">
+                <img src="path.webp" alt="Warehouse Robotics" onerror="this.src='https://via.placeholder.com/600x300?text=Robotics+Project'">
                 <h3>Warehouse Robotics Path Planning</h3>
                 <p>Utilized A* algorithm and self built code to generate efficient robot paths while avoiding collision.</p>
                 <p class="small-text">Conducted several simulations and adjusted factors of safety and collision detection to increase efficiency while maintaining safety.</p>
             </div>
             <div class="project">
-                <img src="HT.webp" alt="Formula Buckeyes" onerror="this.src='https://via.placeholder.com/380x220?text=Formula+Buckeyes'">
+                <img src="HT.webp" alt="Formula Buckeyes" onerror="this.src='https://via.placeholder.com/600x300?text=Formula+Buckeyes'">
                 <h3>Formula Buckeyes EV Accumulator Cooling</h3>
                 <p>Tasked with researching and modeling heat exchange within an air cooled battery.</p>
                 <p class="small-text">Preformed heat transfer, pressure drop, and fluid dynamic calculations along with Computational Fluid Dynamics to design a cooling system capable of maintaining accumulator cooling during excessive cycling.</p>
             </div>
             <div class="project">
-                <img src="EcoCAR.jpg" alt="EcoCAR CACC" onerror="this.src='https://via.placeholder.com/380x220?text=EcoCAR+Project'">
+                <img src="EcoCAR.jpg" alt="EcoCAR CACC" onerror="this.src='https://via.placeholder.com/600x300?text=EcoCAR+Project'">
                 <h3>EcoCAR CACC Algorithm Development</h3>
                 <p>Developed Cooperative Adaptive Cruise Control (CACC) algorithms for the EcoCAR team to improve vehicle autonomy.</p>
                 <p class="small-text">Implemented Vehicle to Everything (V2X) technology to allow car to vehicle and car to intersection communication to optimize intersection navigation and platoon stability.</p>
+            </div>
+            <div class="project">
+                <img src="RoboticArm.png" alt="4-DOF Robotic Arm" onerror="this.src='https://via.placeholder.com/600x300?text=Robotic+Arm'">
+                <h3>4-DOF Robotic Arm</h3>
+                <p>Designed and built a custom 4-DOF robotic arm with a MATLAB-based inverse kinematics engine achieving sub-millimeter end-effector accuracy validated through precision writing tasks.</p>
+                <p class="small-text">Implemented PID, ROS2, and feedforward control for real-time trajectory tracking and closed-loop motion execution.</p>
             </div>
         </div>
     </section>
@@ -440,7 +496,7 @@
                 <div class="resume-card">
                     <div class="resume-preview">
                         <a href="TylerEstradaResume.pdf" target="_blank">
-                            <img src="ResumeImage.png" alt="Resume Preview" onerror="this.src='https://via.placeholder.com/300x400?text=Resume+Preview'">
+                            <img src="ResumeImage.png" alt="Resume Preview" onerror="this.src='https://via.placeholder.com/600x800?text=Resume+Preview'">
                         </a>
                     </div>
                     <a href="TylerEstradaResume.pdf" class="resume-btn" download>Download PDF</a>
@@ -452,14 +508,14 @@
                 <div class="timeline-item">
                     <div class="timeline-item-content">
                         <h3>Ohio State Center for Automotive Research</h3>
-                        <p class="small-text" style="color: var(--accent-green); font-weight: 700;">Graduate Research Assistant</p>
+                        <p class="small-text" style="color: var(--accent-green); font-weight: 700;">Graduate Research Associate</p>
                         <p class="small-text">Columbus, OH | October 2024 - Present</p>
                         <div class="smallDivider"></div>
                         <ul>
-                            <li class="small-text">Graduate Research Assistant for Ohio State's EcoCAR team, serving as the Team Lead for Connected Autonomous Vehicles (CAVs) sub team.</li>
-                            <li class="small-text">Overseeing the development and integration of a Human-Machine Interface (HMI), including hardware installation and interface design.</li>
-                            <li class="small-text">Responsible for python coding and optimizing the HMI's user interface to enhance usability and functionality for autonomous vehicle systems.</li>
-                            <li class="small-text">Developed CACC algorithm utilizing V2X communication, PID control, and MPC to optimize acceleration and deceleration for a 10% improvement in battery efficiency.</li>
+                            <li class="small-text">Led an 8-member cross-functional engineering team developing autonomous longitudinal and lateral control systems (CACC and LCC) across SIL, HIL, and vehicle testing environments.</li>
+                            <li class="small-text">Designed and deployed a CAN-based diagnostic and observability framework enabling real-time fault detection, reducing debugging time during HIL and vehicle testing by 30%.</li>
+                            <li class="small-text">Developed a C++ based CACC controller using V2X messaging for V2V/V2I coordination, reducing inter-vehicle latency by 50% in multi-vehicle scenarios.</li>
+                            <li class="small-text">Analyzed V2X latency, CAN traffic, and closed-loop control performance to identify CACC bottlenecks, achieving 35% improvement in energy efficiency.</li>
                         </ul>
                     </div>
                 </div>
@@ -471,8 +527,8 @@
                         <p class="small-text">Nashville, TN | May-August 2024</p>
                         <div class="smallDivider"></div>
                         <ul>
-                            <li class="small-text">Lead the development of a 3D digital twin of the pilot plant, utilizing LiDAR scanning technology, enhancing operational efficiency and accuracy.</li>
-                            <li class="small-text">Preformed a comprehensive update of all process flow diagrams, modernizing legacy systems and streamlining procedures with a combined cost savings of $1MM.</li>
+                            <li class="small-text">Managed the development of a 3D digital twin of the pilot plant using LiDAR scanning technology, reducing planning time by over 50% by enabling remote site measurements.</li>
+                            <li class="small-text">Updated and optimized over 30 process flow diagrams through Visio and developed a standardized revision process that reduced future document update times by 40%.</li>
                         </ul>
                     </div>
                 </div>
@@ -484,9 +540,8 @@
                         <p class="small-text">Circleville, OH | May-December 2023</p>
                         <div class="smallDivider"></div>
                         <ul>
-                            <li class="small-text">Established new organizational hierarchy for critical equipment and updated with necessary preventative maintenance tasks to ensure continuous operation.</li>
-                            <li class="small-text">Identified and categorized critical pieces of equipment on a multimillion-dollar project to ensure process safety and maintain compliance with the EPA.</li>
-                            <li class="small-text">Designed and implemented cost reducing project to improve operator work scope and allow safe handling of hazardous material.</li>
+                            <li class="small-text">Identified diagnostics and reliability gaps in critical equipment, supporting proactive fault prevention and system reliability improvements for a cost savings of over $500,000.</li>
+                            <li class="small-text">Collaborated with operators to design a waste-handling system that enabled safe disposal of hazardous materials while reducing environmental non-compliance fees.</li>
                         </ul>
                     </div>
                 </div>
@@ -518,11 +573,13 @@
                         </ul>
                     </div>
                 </div>
-            </div> </div> </section>
+            </div>
+        </div>
+    </section>
 
     <footer class="header" style="padding: 30px 20px;">
         <section id="connect">
-            <h2 class="section-title" style="color: var(--text-light); font-size: 32px; margin-bottom: 20px;">Connect With Me</h2>
+            <h2 class="section-title" style="color: var(--text-light); font-size: 2rem; margin-bottom: 20px;">Connect With Me</h2>
             <p class="small-text" style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">Learning html as I build the website so please let me know if you notice any mistakes that I can fix! Still a work in progress.</p>
              <div class="social-links" style="margin-top: 20px;">
                 <a href="https://linkedin.com/in/Tylerestrada2" target="_blank">
@@ -540,8 +597,8 @@
         if ('IntersectionObserver' in window) {
             const observerOptions = {
                 root: null, // Viewport
-                rootMargin: '0px 0px -100px 0px', // Trigger slightly before the element hits the bottom of the screen
-                threshold: 0.1 // Trigger when 10% visible
+                rootMargin: '0px 0px -50px 0px', 
+                threshold: 0.1 
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
@@ -550,8 +607,7 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('in-view');
                     } else {
-                        // When scrolling UP (leaving view) - remove class to reset animation
-                        // Optional: comment this out if you want them to stay visible once scrolled past
+                        // When scrolling UP (leaving view)
                         entry.target.classList.remove('in-view');
                     }
                 });
