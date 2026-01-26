@@ -178,11 +178,11 @@
             border-radius: 2px;
         }
 
-        /* --- PROJECTS SECTION (Updated Animations) --- */
+        /* --- PROJECTS SECTION (Updated Layout & Animation) --- */
         .project-section {
             display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 40px;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 80px 50px; /* Row Gap: 80px, Col Gap: 50px (More spaced out) */
             padding: 10px;
         }
 
@@ -193,14 +193,22 @@
             box-shadow: var(--shadow-soft);
             text-align: left;
             border: 1px solid rgba(0,0,0,0.05);
-            height: 100%;
+            /* Removed fixed height to prevent overlap */
             display: flex;
             flex-direction: column;
             
-            /* ANIMATION START STATE (Same as Timeline) */
+            /* ANIMATION START STATE */
             opacity: 0;
             transform: translateY(60px) scale(0.95);
             transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* Staggered Delay for "Left then Right" effect */
+        .project:nth-child(odd) {
+            transition-delay: 0s; /* Top Left & Bottom Left appear instantly */
+        }
+        .project:nth-child(even) {
+            transition-delay: 0.2s; /* Top Right & Bottom Right wait 0.2s */
         }
         
         /* Triggered by JS */
@@ -210,7 +218,7 @@
         }
         
         .project:hover {
-            transform: translateY(-5px) scale(1.01); /* Subtle lift on hover */
+            transform: translateY(-5px) scale(1.01); 
             box-shadow: var(--shadow-hover);
         }
 
@@ -406,6 +414,11 @@
             .nav-links a {
                 font-size: 16px;
                 padding: 5px;
+            }
+            
+            /* Reset transition delay on mobile so they just load naturally */
+            .project:nth-child(odd), .project:nth-child(even) {
+                transition-delay: 0s;
             }
         }
         
